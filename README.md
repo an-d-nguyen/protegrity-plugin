@@ -1,61 +1,143 @@
-# Neo4j Protegrity Plugin
 
-This project involves a Maven-based Java application designed to integrate Neo4j with Protegrity for dynamic data protection using User-Defined Functions (UDFs).
+# **Neo4j Protegrity Plugin Integration Guide**
 
-## Prerequisites
+## **Introduction**
 
+This document provides a detailed guide on how to integrate Neo4j with Protegrity using a Maven-based Java application for dynamic data protection via User-Defined Functions (UDFs).
+
+### **Prerequisites:**
 - Java Development Kit (JDK) 17 or higher
 - Apache Maven
 - Access to ApplicationProtectorJava.jar from Protegrity
 
-## Setup and Configuration
+---
 
-### Update Protegrity JAR Path
-1. Locate the `ApplicationProtectorJava.jar` file on your machine.
-2. Update the `<systemPath>` in the `pom.xml` to reflect the correct path to `ApplicationProtectorJava.jar`.
+## **1. Installing Prerequisites**
 
-    ```xml
-    <systemPath>/path/to/ApplicationProtectorJava.jar</systemPath>
-    ```
+### **A. Installing Java Development Kit (JDK) 17 or Higher**
 
-### Configure Artifact and Version
-In the `pom.xml`, modify the `<artifactId>` and `<version>` tags to name the output file according to your project's naming conventions.
+1. **Install JDK 17:** Open a terminal and run the following command:
 
-    ```xml
-    <artifactId>YourArtifactId</artifactId>
-    <version>YourVersion</version>
-    ```
+   ```bash
+   brew install openjdk@17
+   ```
 
-## Compilation
+ 
 
-To compile the project, navigate to the project's root directory and run:
+2. **Link JDK 17:** After installation, link JDK 17 to Homebrew using the command:
 
-```bash
-mvn package
-```
+   ```bash
+   brew link --force --overwrite openjdk@17
+   ```
 
-Or to clean and compile:
+   **Screenshot:** Show the terminal with the successful linking message.
 
-```bash
-mvn clean package
-```
+3. **Verify Installation:** Type `java -version` in the terminal to display the installed Java version.
 
-The output JAR file will be located in the `target` directory with the name you set in the `pom.xml`.
+   **Screenshot:** Capture the terminal showing the Java version.
 
-## Modifying the Code
+### **B. Installing Apache Maven**
 
-To add more UDFs or modify existing ones, edit the `ProtegrityPlugin.java` file located in `src/main/java/com/neo4j/ps/protegrity`.
+1. **Install Maven:** In the terminal, run:
 
-- Refer to the existing UDF templates in `ProtegrityPlugin.java` for guidance on structure and implementation.
+   ```bash
+   brew install maven
+   ```
 
-## Adding New UDFs
+   **Screenshot:** Capture the terminal showing the Homebrew command and its output for Maven installation.
 
-- Define a new method in `ProtegrityPlugin.java` with the `@UserFunction` annotation.
-- Set the appropriate `@Description` and method signature.
-- Use existing UDFs as a template for implementing new functionality.
+2. **Verify Installation:** Check if Maven is successfully installed by typing `mvn -v` in the terminal.
 
-## Further Notes
+   **Screenshot:** Show the terminal with the Maven version.
 
-- Ensure all dependencies and plugins in the `pom.xml` are correctly configured.
-- Regularly update your JDK and Maven to their latest versions for optimal performance and security.
-- Consult Neo4j and Protegrity documentation for specific configuration and deployment instructions.
+---
+
+## **2. Setting Up and Configuring the Project**
+
+### **A. Accessing ApplicationProtectorJava.jar**
+
+1. **Obtain the Jar:** Ensure you have access to `ApplicationProtectorJava.jar` from Protegrity. 
+
+   **Note:** Provide details or contact information on how to obtain this JAR file.
+
+### **B. Updating Protegrity JAR Path**
+
+1. **Locate the Jar:** Find the `ApplicationProtectorJava.jar` on your machine.
+
+2. **Update pom.xml:**
+   - Open the `pom.xml` file of your project.
+   - Update the `<systemPath>` element to reflect the path to `ApplicationProtectorJava.jar`.
+
+     ```xml
+     <systemPath>/path/to/ApplicationProtectorJava.jar</systemPath>
+     ```
+
+   **Screenshot:** Show the `pom.xml` before and after the path update.
+
+### **C. Configuring Artifact and Version**
+
+1. **Modify pom.xml:**
+   - In the `pom.xml`, modify the `<artifactId>` and `<version>` tags to name the output file according to your project's naming conventions.
+
+     ```xml
+     <artifactId>YourArtifactId</artifactId>
+     <version>YourVersion</version>
+     ```
+
+   **Screenshot:** Highlight the sections in `pom.xml` where changes are made.
+
+---
+
+## **3. Compiling the Project**
+
+1. **Compile the Project:**
+   - Navigate to the project's root directory.
+   - Run `mvn package` to compile the project.
+
+   **Screenshot:** Capture the command line showing the successful compilation.
+
+2. **Clean and Compile (Optional):**
+   - Run `mvn clean package` to clean the project before compilation.
+
+   **Screenshot:** Show the process and outcome of the clean and compile commands.
+
+3. **Locate the Output JAR:**
+   - The output JAR file will be in the `target` directory.
+
+   **Screenshot:** Capture the target directory showing the newly created JAR file.
+
+---
+
+## **4. Modifying the Code**
+
+### **A. Editing the ProtegrityPlugin.java File**
+
+1. **Access the File:**
+   - Navigate to `src/main/java/com/neo4j/ps/protegrity` and open `ProtegrityPlugin.java`.
+
+   **Screenshot:** Show the file path and the opened file in the editor.
+
+2. **Modify or Add UDFs:**
+   - Refer to existing UDF templates in the file for guidance on structure and implementation.
+
+   **Screenshot:** Capture before and after snapshots of any code changes.
+
+### **B. Adding New UDFs**
+
+1. **Define New Methods:**
+   - In `ProtegrityPlugin.java`, define new methods with the `@UserFunction` annotation.
+   - Set the appropriate `@Description` and method signature.
+
+   **Screenshot:** Show the newly added methods with annotations.
+
+---
+
+## **5. Further Recommendations**
+
+- Ensure all dependencies and plugins in `pom.xml` are correctly configured.
+- Regularly update JDK and Maven for optimal performance and security.
+- Consult Neo4j and Protegrity documentation for specific instructions.
+
+**Note:** Include links to relevant documentation or support resources.
+
+---
